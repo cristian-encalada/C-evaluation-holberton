@@ -1,5 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 
+/**
+ * struct Students - basic students structure
+ * @name: student's name
+ * @age: student's age
+ * @grades: student's grades
+ */
+
+typedef struct Students
+{
+	char name[50];
+	int age;
+	int grades[5];
+} Student;
+
+void init_student(Student *s, char *name, int age, int *grades);
 float average_grade(Student student);
 /**
  * main - Main program to test functions
@@ -9,24 +25,15 @@ float average_grade(Student student);
 
 int main(void)
 {
-    struct Students new_student;
-    
-    init_student(&new_student, "Alex Garcia", 18, 75);
-    float average_grade(Student student); /* to do*/
+	float average;
+	Student new_student;
+
+	init_student(&new_student, "Alex Garcia", 18, (int[]){70, 80, 85, 90, 95});
+	average = average_grade(new_student);
+	printf("The average grade of %s is %.2f\n", new_student.name, average);
+
+	return (0);
 }
-
-/**
- * Students structure
- * @name: student's name
- * @age: student's age
- * @grades: student's grades
- */
-
-typedef struct Students {
-   char name[50];
-   int age;
-   int grades[5];
-} Student;
 
 /**
  * init_student - Initialize the Students structure
@@ -38,24 +45,31 @@ typedef struct Students {
 
 void init_student(struct Students *s, char *name, int age, int *grades)
 {
-	if (s) 
+	if (s)
 	{
-		*s->name = name;
+		strcpy(s->name, name);
 		s->age = age;
-		*s->grades = grades;
+		memcpy(s->grades, grades, sizeof(int) * 5);
 	}
 }
 
 /**
- * average_grade - takes a Student struct as input 
+ * average_grade - takes a Student struct as input
  *             and returns the average of the student's grades
- * @Student: Student structure
- * @student: new student
-
+ * @student: new student (structure)
+ *
  * Return: The average of the student's grades
  */
 
 float average_grade(Student student)
 {
-    /* to do */
+	int i;
+	float average = 0;
+
+	for (i = 0; i < 5; i++)
+		average += student.grades[i];
+
+	average /= 5;
+
+	return (average);
 }

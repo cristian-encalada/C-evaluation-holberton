@@ -26,7 +26,7 @@ int main(void)
  *			to the power of the exponent
  * @base: base integer
  * @exponent: exponent integer
-
+ *
  * Return: The base raised to the power of the exponent
  */
 
