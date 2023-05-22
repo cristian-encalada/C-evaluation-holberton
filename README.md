@@ -1,6 +1,6 @@
 # C Evaluation - Holberton School
 
-Final C evaluation - Holberton UY - Group 0
+__C evaluation - Holberton Uruguay - Group 0__
 
 This evaluation is intended to help you meassure your level of understanding and proficiency in C language. Is to be done alone, but you can use google or your own notes to help you. Is not necessary to explain that you're not intended to search for the solution online, you'll be cheating yourself.
 
@@ -18,7 +18,7 @@ You have 3 hours to do the evaluation.
 
 Write a program that reads an integer from the user and determines if it is an even or odd number. The program should output whether the input number is even or odd.
 
-> Filename: `task_0.c`
+> Filename: [task_0.c](./task_0.c)
 
 **Resoruces:**
 
@@ -35,7 +35,7 @@ Prototype of the `is_prime` function:
 bool is_prime(int);
 ```
 
-> Filename: `task_1.c`
+> Filename: [task_1.c](./task_1.c)
 
 **Resoruces:**
 
@@ -57,7 +57,7 @@ Prototype of the `average_grade` function:
 float average_grade(Student student);
 ```
 
-> Filename: `task_2.c`
+> Filename: [task_2.c](./task_2.c)
 
 **Resoruces:**
 
@@ -69,13 +69,13 @@ float average_grade(Student student);
 Create a recursive function called `power` that takes two integers as input: the base and the exponent.
 The function should return the result of the base raised to the power of the exponent. Write a `main` function that reads the base and exponent from the user, calls the `power` function, and outputs the result.
 
-> Filename: `task_3.c`
+> Filename: [task_3.c](./task_3.c)
 
 ## Exercise 4: File I/O and Error Handling
 
 Create a program that reads a text file containing a list of numbers (one number per line) and calculates the mean, median, and mode of the numbers. The program should handle any errors, such as file not found or invalid file format, and output an appropriate error message. The program should also create a new text file containing the calculated mean, median, and mode, with a label for each value.
 
-> Filename: `task_4.c`
+> Filename: [task_4.c](./task_4.c)
 
 **Resoruces:**
 
