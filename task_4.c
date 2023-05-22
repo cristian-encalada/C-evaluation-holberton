@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_NUMBERS 100
 #define MAX_COUNT 100	/* to calculate the mode */
+#define STR_SIZE 100	/* string size to be printed in a new file */
 
 int read_file(int argc, char *argv[], int numbers[]);
 float calculate_median(int numbers[], int size);
 int calculate_mode(int numbers[], int size);
+void write_results(const char *filename, const char *str);
 /**
  * main - Main program to test functions
  * @argc: argument count
@@ -19,6 +22,7 @@ int main(int argc, char *argv[])
 	int num_count, i, temp, mode;
 	float total, mean;	/* to find the mean*/
 	float median;
+	char print_mean[STR_SIZE], print_median[STR_SIZE], print_mode[STR_SIZE];
 
 	num_count = read_file(argc, argv, numbers);
 
@@ -29,15 +33,21 @@ int main(int argc, char *argv[])
 
 	/* calculate the mean */
 	mean = total / num_count;
+	sprintf(print_mean, "The mean is: %.2f\n", mean);
 	printf("The mean is: %.2f\n", mean);
+	write_results("4.mean", print_mean);
 
 	/* calculate the median */
 	median = calculate_median(numbers, num_count);
+	sprintf(print_median, "The median is: %.2f\n", median);
 	printf("The median is: %.2f\n", median);
+	write_results("4.median", print_median);
 
 	/* calculate the mode */
 	mode = calculate_mode(numbers, num_count);
+	sprintf(print_mode, "The mode is: %d\n", mode);
 	printf("The mode is: %.d\n", mode);
+	write_results("4.mode", print_mode);
 
 	return (0);
 }
@@ -159,4 +169,29 @@ int calculate_mode(int numbers[], int size)
 	}
 
 	return (mode);
+}
+
+/**
+ * write_results - create a new text file containing
+ *			the calculated value
+ * @str: string to be written in the file
+ * @filename: name of the file to be created
+ *
+ * Return: void
+ */
+
+void write_results(const char *filename, const char *str)
+{
+
+	FILE *file = fopen(filename, "w");
+
+	if (file == NULL)
+	{
+		fprintf(stderr, "Unable to create file: %s\n", filename);
+		return;
+	}
+
+	fprintf(file, "%s", str);
+
+	fclose(file);
 }
