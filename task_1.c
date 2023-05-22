@@ -54,15 +54,16 @@ int read_number(void)
 bool is_prime(int num)
 {
 	int i;
-	/* corner cases */
+
 	if (num <= 1)
 		return (false);
-	if (num <= 3)
+	if (num == 2 || num == 3)
 		return (true);
-
+	/* check if num is divisible by 2 or 3 */
 	if (num % 2 == 0 || num % 3 == 0)
 		return (false);
-
+	/* check from 5 to square root of n */
+	/* iterate i by (i+6) */
 	for (i = 5; i * i <= num; i = i + 6)
 		if (num % i == 0 || num % (i + 2) == 0)
 			return (false);
